@@ -1,0 +1,72 @@
+<p>#Problem Statement</p>
+  <p>ShippingtoMali, a shipping company, provides shipping to Mali for
+items bought on Amazon at a rate of $4 for the first item and $2 for
+each subsequent item with each of those items is also subject to import
+10% tax. During this time, they also have a $10 discount for orders
+worth above $500.</p>
+  <pre class="r"><code>#total cost function
+  
+  total_cost &lt;- function(items){
+    cost &lt;- 0
+    #loop through the list while adding to the cost
+    for(i in items) {
+      cost_i &lt;- i + (0.1 * i)
+      cost &lt;- cost + cost_i
+    }
+    #create condition for orders greater than 500
+    if (cost &gt; 500){
+      cost &lt;- cost -10
+    }
+    return(cost)
+  }
+x &lt;- list(120, 32, 99, 49, 99, 75, 30)
+total_cost(x)</code></pre>
+  <pre><code>## [1] 544.4</code></pre>
+  <pre class="r"><code>#shipping cost function
+  shipping_cost &lt;-function(x){
+    return(shipping_cost &lt;- 4 + (2 * (x-1) ))
+  }
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
